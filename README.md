@@ -1,5 +1,29 @@
 # **Semantic Tableaux for Propositional and First-Order Logic** <!-- omit in toc -->
 
+- [1. Introduction](#1-introduction)
+- [2. Installation](#2-installation)
+  - [2.1. Clone the repository](#21-clone-the-repository)
+  - [2.2. Build the optimized executable](#22-build-the-optimized-executable)
+- [3. Running the Program](#3-running-the-program)
+  - [3.1. Basic syntax](#31-basic-syntax)
+- [4. Language Syntax](#4-language-syntax)
+  - [4.1. Propositional Connectives](#41-propositional-connectives)
+  - [4.2. Predicates and Terms (FOL)](#42-predicates-and-terms-fol)
+  - [4.3. Quantifiers (FOL)](#43-quantifiers-fol)
+    - [4.3.1. Universal quantifier:](#431-universal-quantifier)
+    - [4.3.2. Existential quantifier:](#432-existential-quantifier)
+- [5. Usage Examples](#5-usage-examples)
+  - [5.1. Propositional logic](#51-propositional-logic)
+  - [5.2. Valid formula in FOL](#52-valid-formula-in-fol)
+  - [5.3. Automatic instantiation](#53-automatic-instantiation)
+    - [Predicate with arity 2](#predicate-with-arity-2)
+- [6. Installing system-wide (Linux systems)](#6-installing-system-wide-linux-systems)
+- [7. Importante Notes](#7-importante-notes)
+  - [7.1. Always use single quotes '...'](#71-always-use-single-quotes-)
+  - [7.2. The Bash shell treats ! as history expansion](#72-the-bash-shell-treats--as-history-expansion)
+  - [7.3. Do not omit parentheses unnecessarily (Please respect it!)](#73-do-not-omit-parentheses-unnecessarily-please-respect-it)
+- [8. Suggested Test Cases](#8-suggested-test-cases)
+
 # 1. Introduction
 Implemented in Rust — with Full Step-by-Step Proof Output
 
