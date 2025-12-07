@@ -2,8 +2,9 @@
 
 - [1. Introduction](#1-introduction)
 - [2. Installation](#2-installation)
-  - [2.1. Clone the repository](#21-clone-the-repository)
-  - [2.2. Build the optimized executable](#22-build-the-optimized-executable)
+  - [2.1. Install Rust](#21-install-rust)
+  - [2.2. Clone the repository](#22-clone-the-repository)
+  - [2.3. Build the optimized executable](#23-build-the-optimized-executable)
 - [3. Running the Program](#3-running-the-program)
   - [3.1. Basic syntax](#31-basic-syntax)
 - [4. Language Syntax](#4-language-syntax)
@@ -13,9 +14,12 @@
     - [4.3.1. Universal quantifier:](#431-universal-quantifier)
     - [4.3.2. Existential quantifier:](#432-existential-quantifier)
 - [5. Usage Examples](#5-usage-examples)
-  - [5.1. Propositional logic](#51-propositional-logic)
-  - [5.2. Valid formula in FOL](#52-valid-formula-in-fol)
-  - [5.3. Automatic instantiation](#53-automatic-instantiation)
+  - [5.1. Arguments](#51-arguments)
+    - [How to Pass This to the Program](#how-to-pass-this-to-the-program)
+      - [Using Implication (Recommended)](#using-implication-recommended)
+  - [5.2. Propositional logic](#52-propositional-logic)
+  - [5.3. Valid formula in FOL](#53-valid-formula-in-fol)
+  - [5.4. Automatic instantiation](#54-automatic-instantiation)
     - [Predicate with arity 2](#predicate-with-arity-2)
 - [6. Installing system-wide (Linux systems)](#6-installing-system-wide-linux-systems)
 - [7. Importante Notes](#7-importante-notes)
@@ -45,13 +49,33 @@ and prints the entire proof tree, including every applied rule.
 
 # 2. Installation
 
-## 2.1. Clone the repository
+## 2.1. Install Rust
+
+> [!WARNING]INFO
+> Please visit the official Rust website, the information below is a brief.
+
+Installing Rust is very simple on macOS and Linux.
+Go to the official Rust website:
+
+[Rust Website - Installation](https://rust-lang.org/tools/install/)
+
+There, they simply ask you to run the following command in your terminal:
 ```
-git clone https://github.com/YOUR_USER/tableaux.git
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+```
+Follow the on-screen instructions — the download will begin, and within a few seconds Rust will be installed for your user.
+
+Close the terminal and open it again.
+
+This ensures that your shell now knows where Rust is installed.
+
+## 2.2. Clone the repository
+```
+git clone https://github.com/cthadeusantos/tableaux.git
 cd tableaux
 ```
 
-## 2.2. Build the optimized executable
+## 2.3. Build the optimized executable
 
 ```
 cargo build --release
@@ -146,7 +170,40 @@ exists y P(y)
 
 # 5. Usage Examples
 
-## 5.1. Propositional logic
+## 5.1. Arguments
+
+Suppose you have an argument with:
+```
+Premises: A, B, C
+Conclusion: D
+```
+The argument is valid if and only if:
+```
+A ∧ B ∧ C ⊨ D
+```
+
+### How to Pass This to the Program
+
+#### Using Implication (Recommended)
+
+Translate the argument:
+```
+A, B, C ⊢ D
+```
+
+into the formula:
+```
+(A & B & C) -> D
+```
+
+Then run the program:
+```
+./target/release/tableaux '(A & B & C) -> D'
+```
+
+
+
+## 5.2. Propositional logic
 
 Unsatisfiable formula:
 
@@ -162,7 +219,7 @@ Run:
 
 The tableau should close all branches.
 
-## 5.2. Valid formula in FOL
+## 5.3. Valid formula in FOL
 
 ```
 forall x (P(x) -> P(x))
@@ -179,7 +236,7 @@ Expected:
 * T(φ) is satisfiable
 * F(φ) is unsatisfiable → φ is valid
 
-## 5.3. Automatic instantiation
+## 5.4. Automatic instantiation
 
 ```
 forall x P(x) -> exists x P(x)
