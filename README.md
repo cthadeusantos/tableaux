@@ -51,7 +51,7 @@ and prints the entire proof tree, including every applied rule.
 
 ## 2.1. Install Rust
 
-> [!WARNING]INFO
+> [!NOTE]
 > Please visit the official Rust website, the information below is a brief.
 
 Installing Rust is very simple on macOS and Linux.
