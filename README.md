@@ -111,7 +111,7 @@ The system supports:
 |---|---|---|
 | Negation | ¬A | !A or ~A |
 | Conjunction | A ∧ B | A & B or A /\ B |
-| Disjunction | A ∨ B | A \| B or A \/ B |
+| Disjunction | A ∨ B | A \| B or A \\/ B |
 | Implication | A → B | A -> B |
 
 Examples:
